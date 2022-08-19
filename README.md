@@ -42,3 +42,10 @@ tsc 컴파일대상파일.ts
 ```
 
 이후 js 파일 생성 확인
+
+<br>
+<br>
+
+### ✅ tsconfig.json
+
+- Typescript compilier의 기본 설절을 할 수 있는 파일입니다.
