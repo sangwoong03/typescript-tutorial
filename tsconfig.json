@@ -1,0 +1,17 @@
+{
+    "include": [ //컴파일 대상 파일
+        "src/**/*.ts" 
+    ],
+    "exclude": [ // 컴파일 제외 대상 파일
+        "node_modules"
+    ],
+    "compilerOptions": { // 실제 compile 옵션 값 설정
+        "module": "CommonJS",
+        "rootDir": "src",
+        "outDir": "dist",
+        "target": "ES6",
+        "sourceMap": false,
+        "removeComments": true,
+        "noImplicitAny": false,
+    }
+}

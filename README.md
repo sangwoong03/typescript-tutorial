@@ -49,3 +49,7 @@ tsc 컴파일대상파일.ts
 ### ✅ tsconfig.json
 
 - Typescript compilier의 기본 설절을 할 수 있는 파일입니다.
+
+- 최상위루트의 `tsconfig.json` 파일을 참고해주세요.
+- 기본 설정 속성에 대한 설명만 포함되어 있습니다.  
+  자세한 설명은 [공식문서](https://www.typescriptlang.org/ko/docs/handbook/tsconfig-json.html)를 확인해주세요.
