@@ -59,6 +59,9 @@ tsc 컴파일대상파일.ts
 tsc
 ```
 
+<br>
+<br>
+
 ### ✅ 변수선언
 
 `Typescript`는 `Javascript`의 상위 집합이므로 `var`, `let`, `const` 키워드를 통해 변수를 선언할 수 있습니다.
