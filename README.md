@@ -46,10 +46,26 @@ tsc 컴파일대상파일.ts
 <br>
 <br>
 
-### ✅ tsconfig.json
+### ✅ 컴파일 설정: tsconfig.json
 
 - Typescript compilier의 기본 설절을 할 수 있는 파일입니다.
 
 - 최상위루트의 `tsconfig.json` 파일을 참고해주세요.
 - 기본 설정 속성에 대한 설명만 포함되어 있습니다.  
   자세한 설명은 [공식문서](https://www.typescriptlang.org/ko/docs/handbook/tsconfig-json.html)를 확인해주세요.
+
+- 기본 설정 이후 해당 명령어를 통해 컴파일하기
+```
+tsc
+```
+
+### ✅ 변수선언
+
+`Typescript`는 `Javascript`의 상위 집합이므로 `var`, `let`, `const` 키워드를 통해 변수를 선언할 수 있습니다.
+
+```
+함수 단위 scope : var
+블록 단위 scope:: let, const
+```
+
+자세한 내용은 [블로그](https://velog.io/@sangwoong/JS-TS-variables)를 확인해주세요.
