@@ -49,6 +49,10 @@ tsc 컴파일대상파일.ts
 ### ✅ 컴파일 설정: tsconfig.json
 
 - Typescript compilier의 기본 설절을 할 수 있는 파일입니다.
+- 명령어를 통한 `tsconfig.json` 파일 설치
+```
+npx tsc --init
+```
 
 - 최상위루트의 `tsconfig.json` 파일을 참고해주세요.
 - 기본 설정 속성에 대한 설명만 포함되어 있습니다.  
@@ -79,3 +83,88 @@ tsc
   - 타입을 지정한 경우: 지정한 데이터 타입의 값만 할당할 수 있습니다.
 
 자세한 내용은 [블로그](https://velog.io/@sangwoong/JS-TS-variables)를 확인해주세요.
+
+<br>
+<br>
+
+### ✅ 기본 타입
+
+`Typescript`는 기본적으로 `Javascript`의 원시형 및 객체 타입을 지원합니다.
+
+``` typescript
+let numValue: number; // int, float, decimal
+let strValue: string; // "", '', template literal
+let booleanValue: boolean; // true or false
+let undefinedValue: undefined;
+let nullValue: null; 
+let objectValue: object;
+let symbolValue: symbol;
+```
+
+📌 `undefined`와 `null`
+- 모든 데이터타입의 하위 타입입니다.
+그렇기 때문에 `number`, `string`, `boolean` 타입으로 지정된 변수에 `undefined`, `null`을 할당할 수 있습니다.
+
+- 반면, `any`는 모든 데이터타입의 상위 타입입니다.
+위에서 설명한 7가지 데이터 타입의 값을 모두 할당할 수 있습니다.
+
+📌 `object` 
+- 원시형 데이터 타입은 값으로 할당할 수 없으며, `{} 중괄호`로 감싼 데이터를 할당할 수 있습니다.
+
+- `new String()`은 object 타입을 반환하기 때문에 변수에 할당할 수 있습니다.
+
+- `Inline Type` 설정
+  ``` Typescript
+  let object1: { name: string, age: number };
+  object1 = {
+    name = "sangwoong",
+    age = 27
+  }
+  ```
+
+📌 `array`
+- 배열을 데이터 타입으로 선언하는 방법은 다음 방식이 있습니다.
+```typescript
+let stringArr: string[];
+let anyArr: any[];
+```
+- `stringArr: string:[]`
+  - 배열의 각 요소로 문자열 (숫자 지정 시 숫자) 형태의 데이터만 넣을 수 있습니다.
+  ``` typescript
+  stringArr = ["1", "2", "3"] // 가능
+  stringArr.push("String") // 가능
+  stringArr = [1, 2, 3] // 불가능 
+  ```
+- `anyArr: any[]`
+  - 각 요소로 모든 타입의 데이터를 넣을 수 있습니다.
+  ```typescript
+  anyArr = [1, "String", true]
+  anyArr.push(5)
+  ```
+
+📌 `tuple`
+  - 배열을 지정하는 방식과 비슷합니다.
+  - 하지만 `tuple` 타입은 지정한 원소의 개수만큼의 데이터를 할당할 수 있습니다.
+  ``` typescript
+  let tupleTwo: [number, string]
+  tupleTwo = [27, "sangwoong"]
+
+  let tupleThree: [number, string, string]
+  tupleThree = [27, "sangwoong", "Kim"]
+  ```
+
+📌 `Alias (별칭)`
+
+- `Alias`는 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미합니다.
+- 반복되는 타입 설정을 줄일 수 있습니다.
+``` typescript
+type User = {
+  name: string,
+  age?: number // optional type
+}
+
+const user1: User = {
+  name: "sangwoong",
+  age: 27
+}
+```
