@@ -5,7 +5,7 @@
 <br>
 <br>
 
-### ✅ Typescript 개요
+## ✅ Typescript 개요
 
 - 오픈소스 프로그래밍 언어
 - `Javascript`의 상위 집합으로 ECMA스크립트의 최신 표준을 지원
@@ -21,7 +21,7 @@
 <br>
 <br>
 
-### ✅ 개발환경 구축
+## ✅ 개발환경 구축
 
 1. Node.Js 설치
 
@@ -46,7 +46,7 @@ tsc 컴파일대상파일.ts
 <br>
 <br>
 
-### ✅ 컴파일 설정: tsconfig.json
+## ✅ 컴파일 설정: tsconfig.json
 
 - Typescript compilier의 기본 설절을 할 수 있는 파일입니다.
 - 명령어를 통한 `tsconfig.json` 파일 설치
@@ -66,7 +66,7 @@ tsc
 <br>
 <br>
 
-### ✅ 변수선언
+## ✅ 변수선언
 
 `Typescript`는 `Javascript`의 상위 집합이므로 `var`, `let`, `const` 키워드를 통해 변수를 선언할 수 있습니다.
 
@@ -87,7 +87,7 @@ tsc
 <br>
 <br>
 
-### ✅ 기본 타입
+## ✅ 기본 타입
 
 `Typescript`는 기본적으로 `Javascript`의 원시형 및 객체 타입을 지원합니다.
 
@@ -101,14 +101,14 @@ let objectValue: object;
 let symbolValue: symbol;
 ```
 
-📌 `undefined`와 `null`
+### 📌 `undefined`와 `null`
 - 모든 데이터타입의 하위 타입입니다.
 그렇기 때문에 `number`, `string`, `boolean` 타입으로 지정된 변수에 `undefined`, `null`을 할당할 수 있습니다.
 
 - 반면, `any`는 모든 데이터타입의 상위 타입입니다.
 위에서 설명한 7가지 데이터 타입의 값을 모두 할당할 수 있습니다.
 
-📌 `object` 
+### 📌 `object` 
 - 원시형 데이터 타입은 값으로 할당할 수 없으며, `{} 중괄호`로 감싼 데이터를 할당할 수 있습니다.
 
 - `new String()`은 object 타입을 반환하기 때문에 변수에 할당할 수 있습니다.
@@ -122,7 +122,7 @@ let symbolValue: symbol;
   }
   ```
 
-📌 `array`
+### 📌 `array`
 - 배열을 데이터 타입으로 선언하는 방법은 다음 방식이 있습니다.
 ```typescript
 let stringArr: string[];
@@ -142,7 +142,7 @@ let anyArr: any[];
   anyArr.push(5)
   ```
 
-📌 `tuple`
+### 📌 `tuple`
   - 배열을 지정하는 방식과 비슷합니다.
   - 하지만 `tuple` 타입은 지정한 원소의 개수만큼의 데이터를 할당할 수 있습니다.
   ``` typescript
@@ -153,7 +153,7 @@ let anyArr: any[];
   tupleThree = [27, "sangwoong", "Kim"]
   ```
 
-📌 `Alias (별칭)`
+### 📌 `Type Alias (별칭)`
 
 - `Alias`는 특정 타입이나 인터페이스를 참조할 수 있는 타입 변수를 의미합니다.
 - 반복되는 타입 설정을 줄일 수 있습니다.
@@ -168,3 +168,99 @@ const user1: User = {
   age: 27
 }
 ```
+
+## ✅ 함수형 타입
+
+`Typescript`에서는 함수의 매개변수에 데이터 타입을 지정할 수 있습니다.
+
+함수 블록 내부에서 반환되는 값으로 함수의 값을 지정할 수 있습니다.
+
+### 📌 함수 선언 예저
+
+아래 예제를 통해 알아보겠습니다.
+
+``` typescript
+function add(x: number, y:number):number {
+  return x + y
+}
+const result = add(1, 2)
+
+console.log(result) // 3
+console.log(typeof result) // number type, the returned value of funciton "add"
+```
+
+함수의 매개변수의 `기본값`을 설정하거나 `optional type`을 지정하는 경우는 다음과 같습니다. 
+
+``` typescript
+// 기본
+function user(name: string, age: number) {
+  return {
+    name,
+    age
+  }
+}
+
+// optional type
+function user(name?: string, age?: number) {
+  return {
+    name,
+    age
+  }
+}
+
+// Default value
+function user(name="name", age=0) {
+  return {
+    name,
+    age
+  }
+}
+
+```
+
+<br>
+
+### 📌 화살표 함수
+
+ES6 화살표 함수를 사용할 때도 동일합니다. 
+
+``` typescript
+const add = (x: number, y: number):number => x + y
+```
+
+<br>
+
+### 📌 Call Signature
+
+함수 매개변수와 반환 값의 데이터 타입을 미리 선언하여 사용할 수도 있습니다.
+
+``` typescript
+type Add = (a: number, b: number) => number
+
+const add:Add = (a, b) => a + b;
+```
+
+객체 타입이나 일반 원시형 데이터 타입을 반환하는 일반전익 `Type Alias`와의 차이점으로는 매개변수와 함수의 반환 값을 설정하는 것에 있다고 보면 되겠습니다.
+
+<br>
+
+### 📌 Overloading
+
+동일한 이름을 가진 함수에 여러 매개변수를 적용하는 방법을 `Overloading`이라고 합니다.
+
+위 `Call Signature`에서 사용한 예제를 다음과 같이 구현할 수 있습니다. 
+
+``` typescript
+type Add = {
+  (a: number, b: number) : number
+  (a: number, b: number, c: number) :number
+}
+
+const add: Add = (a, b, c?: number) => {
+  if (c) return a + b + c
+  return a + b
+}
+```
+
+`Call Signature`로 선언한 매개변수와 반환 타입이 여러 개가 있을 경우,  
+아래 `optional type`을 선언한 방식과 같이 함수를 작성할 수 있습니다.

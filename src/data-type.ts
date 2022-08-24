@@ -76,3 +76,34 @@ const firstUser: User = {
 	name: "sangwoong",
 	age: 27,
 };
+
+// ================================== Function ==================================
+type Add = {
+	(a: number, b: number): number;
+	(a: number, b: number, c: number): number;
+};
+
+function add(x: number, y: number) {
+	return x + y;
+}
+// same as
+// const add = (x:number, y:number) => x+y
+
+const add1: Add = (a, b, c?: number) => {
+	if (c) return a + b + c;
+	return a + b + c;
+};
+
+function player(name: string, age?: number) {
+	return {
+		name,
+		age,
+	};
+}
+
+function player2(name = "name", age = 0) {
+	return {
+		name,
+		age,
+	};
+}
