@@ -107,3 +107,18 @@ function player2(name = "name", age = 0) {
 		age,
 	};
 }
+
+// ================================== Generic ==================================
+type Type = {
+	<Type>(arr: Type[]): void;
+};
+
+const printType: Type = (arr) => {
+	arr.forEach((item) => console.log(item));
+};
+
+printType([1, 2, 3]);
+printType(["a", "b", "c"]);
+printType([true, false, true]);
+printType([1, 2, true, false]);
+printType([1, 2, true, false, "a", "b"]);
