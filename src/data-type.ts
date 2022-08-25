@@ -122,3 +122,20 @@ printType(["a", "b", "c"]);
 printType([true, false, true]);
 printType([1, 2, true, false]);
 printType([1, 2, true, false, "a", "b"]);
+
+// ================================== Interface ==================================
+
+interface Player {
+	name: string;
+	age: number;
+}
+
+interface Player1 extends Player {
+	position: string;
+}
+
+const player1: Player1 = {
+	name: "sangwoong",
+	age: 28,
+	position: "midfielder",
+};

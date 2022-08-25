@@ -335,3 +335,75 @@ printType([1, 2, true, false, "a", "b"])
 ![generic](./src/images/generic-result.png)
 
 위와 같이 어떠한 type 을 인자로 받는지 알 수 있습니다.
+
+<br>
+<br>
+
+## ✅ Interface
+
+`Typescript`의 인터페이스는 항상 특정한 데이터 타입을 따르는 데이터를 받겠다는 상호간의 약속을 의미합니다.
+
+위에서 알아본 `Type Alias (별칭)`과 그 쓰임새가 비슷합니다.
+
+<br>
+
+### 📌 사용 방법
+
+인터페이스 사용 방법은 다음과 같습니다.
+
+``` typescript
+interface User {
+  name: string,
+  age: number
+}
+
+function getUser(obj: User) {
+  return {
+    name,
+    age
+  }
+}
+```
+
+함수를 정의하는 방법은 다음과 같습니다.
+
+``` typescript
+interface addFunction {
+  (a: number, b: number): number
+}
+
+const add:Add = function (a, b) {
+  return a + b
+}
+```
+
+<br>
+
+### 📌 상속
+
+`Type Alias`와 차이를 두는 점은 바로 상속 가능 여부입니다.
+
+`Type Alias`는 상속을 통해 이미 선언한 Type을 변경할 수 없습니다.
+
+`Interface`는 상속을 통해 이미 선언한 interface를 변경할 수 있습니다.
+
+```typescript
+// 인터페이스 확장
+interface User {
+  name: string;
+  age: number;
+}
+
+interface Player extends User {
+  position: string;
+}
+
+const player1: Player = {
+  name: "sangwoong",
+  age: 28,
+  position: "midfielder"
+}
+```
+
+
+

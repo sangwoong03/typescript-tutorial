@@ -79,3 +79,8 @@ printType(["a", "b", "c"]);
 printType([true, false, true]);
 printType([1, 2, true, false]);
 printType([1, 2, true, false, "a", "b"]);
+const player1 = {
+    name: "sangwoong",
+    age: 28,
+    position: "midfielder",
+};
