@@ -84,3 +84,20 @@ const player1 = {
     age: 28,
     position: "midfielder",
 };
+class User12 {
+    constructor(name, age, position, backNumber) {
+        this.name = name;
+        this.age = age;
+        this.position = position;
+        this.backNumber = backNumber;
+    }
+    getProfile() {
+        return `${this.name} + ${this.age}`;
+    }
+}
+class Player12 extends User12 {
+    getPosition() {
+        console.log(this.position);
+    }
+}
+const sangwoong = new Player12("sangwoong", 27, "midfielder", 3);

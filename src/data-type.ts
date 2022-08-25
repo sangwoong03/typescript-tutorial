@@ -139,3 +139,26 @@ const player1: Player1 = {
 	age: 28,
 	position: "midfielder",
 };
+
+// ================================== Class ==================================
+abstract class User12 {
+	constructor(
+		private name: string, // 해당 클래스에서만 접근이 가능
+		private age: number,
+		public position: string, // 외부 어디에서나 접근 가능
+		protected backNumber: number, // 상속관계일 때 접근 가능
+	) {}
+	abstract getPosition(): void;
+
+	getProfile() {
+		return `${this.name} + ${this.age}`;
+	}
+}
+
+class Player12 extends User12 {
+	getPosition() {
+		console.log(this.position);
+	}
+}
+
+const sangwoong = new Player12("sangwoong", 27, "midfielder", 3);

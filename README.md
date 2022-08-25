@@ -405,5 +405,40 @@ const player1: Player = {
 }
 ```
 
+<br>
+<br>
+
+## 📌 Class
 
 
+`Typescript`에서 class를 통해 객체 지향 프로그래밍을 할 수 있습니다.
+
+우선 어떻게 사용하는지 알아보겠습니다.
+
+``` typescript
+abstract class User {
+  constructor (
+    private name: string, // 해당 클래스에서만 접근이 가능
+    private age: number,
+    public position: string, // 외부 어디에서나 접근 가능
+    protected backNumber: number // 상속관계일 때 접근 가능
+  ) {}
+  abstract getProfile():void
+
+  getProfile() {
+    return `${name} + ${age}`
+  }
+}
+
+class Player extends User {
+  getProfile() {
+    console.log(this.backNumber)
+  }
+}
+
+const sangwoong = new Player("sangwoong", 27, "midfielder",3 )
+```
+
+C++이나 Java 프로그래밍 언어의 class 개념과 동일합니다.
+
+`typescript`에서는 public, private, protected 와 같은 접근 제어 지시자를 통해 class 내부에 선언된 변수나 함수에 접근을 제어할 수 있습니다.
